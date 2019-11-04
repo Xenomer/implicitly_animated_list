@@ -108,7 +108,9 @@ class _ImplicitlyAnimatedListState<ItemData>
     return AnimatedList(
       key: _listKey,
       controller: widget.controller,
-      initialItemCount: widget.itemData.length,
+      initialItemCount: 0, // on first build an empty list is sent,
+                           // without this the AnimatedList thinks there
+                           // are items when none are yet initalized
       padding: widget.padding,
       physics: widget.physics,
       primary: widget.primary,
